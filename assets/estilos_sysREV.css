@@ -1,0 +1,1204 @@
+/*Hoja de estilo nombrada estilos_sys, tuvo conflicto con portales de escuelas al integrarse como sistema
+como solución, se dio de alta una hoja sys 2. Se tienen que fusionar*/
+
+/**********
+----Estilos del sistema que aplica a todo el ambiente de biblioteca.tec.mx:
+1. NormalizaciÃ³n y reseteo de estilos
+2. Variables css, principalmente para habilitar modo oscuro
+3. Estilos base del body
+4. Header institucional
+4.1 Buscador del header (BIblioxplora)
+
+----------------------
+(deberÃ­a estar en el grupo de Biblioteca Tec?)
+5. NavegaciÃ³n principal 
+6. Botonera de escuelas 
+7. Tarjeta de contenidos en home
+
+
+/*****************************************
+******ESTILOS PARA SISTEMA********
+******************************************/
+
+
+/********/
+
+/*** SOBREESCRIBIR ESTILOS DE LIBGUIDES***/
+/*
+*/
+#s-lg-tabs-container {
+    display: none;
+}
+
+/*Para resaltar la fecha "hoy" en los horarios, sin afectar modo oscuro*/
+.s-lc-whw>tbody>tr>td {
+    padding: 5px;
+    background-color: var(--background-secondary);
+}
+
+.s-lib-box-container .s-lib-floating-box-content {
+
+    background-color: var(--background-secondary);
+}
+
+body.dark-mode .s-lib-box {
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-100);
+    border: var(--color-gray-500);
+}
+
+body.dark-mode .panel-default>.panel-heading+.panel-collapse>.panel-body {
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-100);
+    border: var(--color-gray-500);
+}
+
+body.dark-mode .card-body {
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-100);
+    border: var(--color-gray-500);
+}
+
+#s-lib-footer-public {
+    display: none;
+}
+
+/*Permite centrar imÃ¡genes*/
+.s-lib-box img {
+    margin: auto;
+}
+
+
+
+#s-lg-guide-main {
+    padding-left: 40px;
+    padding-left var(--transition-duration) var(--transition-timing);
+}
+
+#s-lg-guide-main.sidenav-expanded {
+    padding-left: 180px;
+}
+
+/*----------------------------------------------
+  1. Reseteo - NormalizaciÃ³n de estilos
+*******************************************************
+Ofrece una base consistente para el diseÃ±o, eliminando los estilos predeterminados del navegador y/o libguides.
+----------------------------------------------*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+
+}
+
+/* Mejora accesibilidad y responsivo */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+
+
+/* Mejora: Uso especÃ­fico de prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-duration: 0.01ms;
+        --transition-speed: 0.01ms;
+    }
+
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: var(--transition-duration) !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: var(--transition-duration) !important;
+    }
+}
+
+/*----------------------------------------------
+  2. Variables - Sistema de diseÃ±o
+----------------------------------------------*/
+:root {
+    /* Sistema de Colores Base */
+    --color-white: #ffffff;
+    --color-gray-100: #f5f8fa;
+    --color-gray-200: #e0e0e0;
+    --color-gray-300: #b0b0b0;
+    --color-gray-400: #666666;
+    --color-gray-500: #333333;
+    --color-gray-600: #1E1E1E;
+    --color-gray-700: #121212;
+    --color-primary-300: #8080FF;
+    --color-primary-400: #6A6AFF;
+    --color-primary-500: #4B4DDB;
+    --color-primary-600: #7B48CC;
+    --link-color: var(--accent-color);
+    --link-hover-color: var(--accent-color-hover);
+
+    /* Fuentes */
+    --font-style: 'Roboto', system-ui, -apple-system, arial, sans-serif;
+    --font-size-base: 14px;
+    --line-height-base: 1.5;
+
+
+    /* Espaciado (aÃ±adido para consistencia) */
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 3.5em;
+
+    /* Bordes y Sombras */
+    --border-radius-sm: 0.25rem;
+    /* 4px */
+    --border-radius-md: 0.5rem;
+    /* 8px */
+    --border-radius-lg: 0.875rem;
+    /* 14px */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Ancho de menÃº lateral */
+    --sidenav-width-expanded: 250px;
+    --sidenav-width-collapsed: 80px;
+
+    /* Transiciones */
+    --transition-duration: 0.3s;
+    --transition-speed: 0.3s;
+    --transition-timing: ease;
+
+    /* Breakpoints */
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+    /* Tema Claro (default) */
+    --background-primary: var(--color-white);
+    --background-secondary: var(--color-gray-100);
+    --text-primary: var(--color-gray-500);
+    --text-secondary: var(--color-gray-400);
+    --accent-color: var(--color-primary-500);
+    --accent-color-hover: var(--color-primary-600);
+    --border-color: var(--color-gray-200);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --focus-ring-color: rgba(75, 77, 219, 0.5);
+
+    /* Componentes UI */
+    --navbar-background: var(--background-secondary);
+    --navbar-text: var(--text-primary);
+}
+
+/* Tema Oscuro que se aplica automÃ¡ticamente si el usuario prefiere modo oscuro */
+@media (prefers-color-scheme: dark) {
+    body.dark-mode {
+        --background-primary: var(--color-gray-700);
+        --background-secondary: var(--color-gray-600);
+        --text-primary: var(--color-gray-100);
+        --text-secondary: var(--color-gray-300);
+        --accent-color: var(--color-primary-400);
+        --accent-color-hover: var(--color-primary-300);
+        --border-color: var(--color-gray-500);
+        --shadow-color: rgba(255, 255, 255, 0.1);
+        --navbar-background: var(--background-secondary);
+        --navbar-text: var(--text-primary);
+    }
+}
+
+/* Modo oscuro*/
+body.dark-mode {
+    --background-primary: var(--color-gray-700);
+    --background-secondary: var(--color-gray-600);
+    --text-primary: var(--color-gray-100);
+    --text-secondary: var(--color-gray-300);
+    --accent-color: var(--color-primary-400);
+    --accent-color-hover: var(--color-primary-300);
+    --border-color: var(--color-gray-500);
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --navbar-background: var(--background-secondary);
+    --navbar-text: var(--text-primary);
+}
+
+#logo-dark {
+    display: none;
+}
+
+body.dark-mode #logo-light {
+    display: none;
+}
+
+body.dark-mode #logo-dark {
+    display: block;
+}
+
+.theme-toggle::before {
+    content: "ðŸŒ™";
+}
+
+body.dark-mode .theme-toggle::before {
+    content: "â˜€ï¸";
+}
+
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: var(--accent-color);
+    color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-2) var(--space-4);
+    box-shadow: var(--shadow-sm);
+    font-size: 26px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--accent-color-hover);
+}
+
+/* Soporte tÃ¡ctil mejorado */
+@media (hover: none) {
+
+    button,
+    .dark-mode-toggle,
+    a {
+        padding: var(--space-4);
+        /* Ãreas tÃ¡ctiles mÃ¡s grandes */
+    }
+}
+
+/*----------------------------------------------
+  3. Estilos Base
+----------------------------------------------*/
+body {
+    font-family: var(--font-style);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-primary);
+    background-color: var(--background-secondary);
+    padding-top: var(--space-10);
+
+    padding-left: var(--sidenav-width-collapsed);
+
+    transition:
+        color var(--transition-duration) var(--transition-timing),
+        background-color var(--transition-duration) var(--transition-timing),
+        padding-left var(--transition-duration) var(--transition-timing);
+}
+
+body.sidenav-expanded {
+    padding-left: var(--sidenav-width-expanded);
+}
+
+/* Mejora de accesibilidad: Estilos de enfoque */
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Mejora de tipografÃ­a */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+    text-rendering: optimizeLegibility;
+    text-align: center;
+}
+
+
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
+/* Mejora en controles de formulario */
+button,
+input,
+select,
+textarea {
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-1) var(--space-4);
+    transition:
+        border-color var(--transition-duration) var(--transition-timing),
+        box-shadow var(--transition-duration) var(--transition-timing);
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+    font-size: 16px;
+}
+
+/* Botones */
+button {
+    background-color: var(--accent-color);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-md);
+    transition:
+        background-color var(--transition-duration) var(--transition-timing),
+        transform var(--transition-duration) var(--transition-timing);
+}
+
+button:hover {
+    background-color: var(--accent-color-hover);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Enlaces */
+a {
+
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+li {}
+
+.fa-solid, .fas {
+    font-weight: 900;
+    font-size: x-large;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        padding-left: 0 !important;
+        padding-top: var(--space-10);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        font-size: 2rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+}
+
+/*********************************************
+******** X. HEADER INSTITUCIONAL **************
+*********************************************/
+.institutional-header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+    height: 70px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+}
+
+.logo_instit {
+    height: auto;
+    width: 160px;
+}
+
+.logo-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.institutional-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.institutional-nav ul {
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    display: flex;
+}
+
+
+
+.institutional-nav img {
+    width: 48px;
+    height: auto;
+}
+
+.institutional-nav i {
+    font-size: 1em;
+    margin-left: 1em;
+}
+
+.institutional-nav span {
+    margin-left: 3px;
+}
+
+.institutional-nav a,
+.institutional-nav a:visited {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.institutional-nav a:hover,
+.institutional-nav a:active {
+
+    color: #EA337D;
+}
+
+
+.institutional-nav a:focus {
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* Media Query del logo institucional para mÃ³vil */
+@media (max-width: 768px) {
+    .logo_instit {
+        width: 130px;
+    }
+}
+
+.institutional-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*max-width: 1200px;  Ajusta el ancho mÃ¡ximo */
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+
+}
+
+/* Media Query del header institucional para mÃ³vil */
+@media (max-width: 768px) {
+    .header-content {}
+
+    .institutional-nav {
+        position: absolute;
+        right: 0;
+        top: auto;
+    }
+
+    #s-lg-guide-main {
+        padding-left: 1rem;
+    }
+
+    .nav-list_head {
+        top: 0px;
+    }
+
+    .institutional-nav span {
+        display: none;
+        margin: 0;
+    }
+
+    .institutional-nav ul {
+
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+
+    }
+
+
+    .institutional-nav i {
+        font-size: 1.5em;
+        margin-left: 0em;
+
+    }
+
+    .institutional-nav span {
+        margin: 0;
+    }
+}
+
+
+/*****************************************
+********** X. BUSCADOR *********************
+******************************************/
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--text-primary);
+    flex: 1;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-box-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 15px;
+    padding-left: 40px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: black;
+}
+
+.search-btn {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    color: #211f1f;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.search-section ::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: #121212;
+}
+
+.search-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #211f1f;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    /* Se mostrarÃ¡ solo en mÃ³vil cuando estÃ© expandido */
+}
+
+.search-toggle-btn {
+    display: none;
+    /* Por defecto oculto, se mostrarÃ¡ en mÃ³vil */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #211f1f;
+}
+
+.search-section ::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: #121212;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .institutional-header {
+        padding: 0;
+    }
+
+    .search-box-wrapper {
+        transition: width 0.3s ease;
+    }
+
+    .search-toggle-btn {
+        display: block;
+        background-color: var(--color-primary-500);
+    }
+
+    .search-form {
+        display: none;
+        /* Inicialmente oculto en mÃ³vil */
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 100;
+        padding: 0.5em;
+    }
+
+    .search-box-wrapper.expanded {
+        width: 100%;
+        /* Cuando estÃ¡ expandido */
+    }
+
+    .search-box-wrapper.expanded .search-form {
+        display: flex;
+
+        position: relative;
+        width: 100%;
+    }
+
+    .search-box-wrapper.expanded .search-toggle-btn {
+        display: none;
+    }
+
+    .search-box-wrapper.expanded .search-close-btn {
+        display: block;
+    }
+
+    .search-section ::placeholder {
+        font-size: 14px;
+        font-weight: 700;
+        padding-left: 5px;
+    }
+
+
+    .institutional-header.search-expanded .logo-wrapper,
+    .institutional-header.search-expanded .institutional-nav {
+        display: none;
+    }
+
+
+    .institutional-header.search-expanded .search-section {
+        width: 100%;
+    }
+}
+
+
+/*****************************************************
+*******INICIO DE ESTILOS PARA COLORES DE BOTONES SHORTCUT****
+*****************************************************/
+.shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.shortcuts a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.flex-item {
+    width: auto;
+    padding: 15px;
+    border-radius: 2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Colores alternados */
+.shortcuts a:nth-child(3n+1) .flex-item {
+    background-color: #8b8fff;
+
+}
+
+.shortcuts a:nth-child(3n+2) .flex-item {
+    background-color: #8BC34A;
+}
+
+.shortcuts a:nth-child(3n+3) .flex-item {
+    background-color: #EF8F00;
+
+}
+
+
+/* Efecto hover */
+.flex-item:hover {
+    background-color: #ECCCF2;
+    transform: scale(1.05);
+
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .flex-item {
+        padding: 15px;
+        font-size: 14px;
+
+    }
+
+    .shortcuts {
+        gap: 2px;
+    }
+
+    /*****************************************************
+*******ESTILOS DE CONTENIDOS: 2 COLUMNAS****
+*****************************************************/
+
+
+    .row1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+
+    }
+
+    .columna {
+        flex: 1 0 calc(50% - 10px);
+
+        box-sizing: border-box;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 20px;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .opcion-columna {
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .columna h2 {
+        font-weight: 700;
+        margin-top: 40px;
+        margin-bottom: 1em;
+        font-size: 32px;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .columna h3 {
+        text-align: center;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .columna-icono {
+        width: 50px;
+        margin: auto;
+        display: block;
+    }
+
+
+    .columna ul {
+        padding: 0px 15px;
+        list-style: disc;
+        line-height: 2.5
+    }
+
+    .columna ol {
+        padding: 0px 15px;
+        line-height: 2.5
+    }
+
+
+
+    .columna .button {
+        width: 180px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: Trueno, sans-serif;
+        line-height: 1.3;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        display: inline-block;
+
+    }
+
+    .columna .button-2Reg {
+        color: white;
+        border: 3px solid #000000;
+        background-image: -webkit-linear-gradient(30deg, #000000 50%, #000000 50%);
+        background-image: linear-gradient(30deg, #000000 50%, transparent 50%);
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-position: 0%;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+        position: absolute;
+        left: 16%;
+    }
+
+    .contenedor-boton-personalizado {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .boton-primario-personalizado {
+        display: inline-block;
+        padding: 10px 16px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #0d6efd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+    }
+
+    .boton-primario-personalizado:hover {
+        background-color: #0b5ed7;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    }
+
+    .boton-primario-personalizado:active {
+        background-color: #0a58ca;
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .boton-primario-personalizado:focus {
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    }
+
+
+
+    /* Media query para dispositivos mÃ¡s pequeÃ±os */
+    @media screen and (max-width: 768px) {
+        .columna {
+            flex: 1 0 100%;
+            /* Cambio a ocupar 100% del ancho cuando la pantalla es pequeÃ±a */
+        }
+    }
+
+    .columna:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+
+
+
+
+    /*****************************************************
+INICIO DE ESTILOS PARA BOTONES-ACCION 
+*****************************************************/
+    .btn-dark {
+        position: relative;
+
+    }
+
+    .boton-Biblio {
+        background-color: #171412;
+        color: white;
+        border-radius: 0px;
+        text-transform: uppercase;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        transition: .3s all;
+        cursor: pointer;
+        text-decoration: none;
+        width: 15em;
+        height: 4em;
+        vertical-align: middle;
+        justify-content: center;
+        margin: 15px;
+
+    }
+
+    .boton-Biblio:hover {
+        color: #171412;
+        background-color: white;
+        border-radius: 0px;
+        border-color: #171412;
+
+    }
+
+    .boton-Biblio::after {
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+        content: "";
+        display: inline-block;
+        /* By using an em scale, the arrows will size with the font */
+        width: 0.7em;
+        height: 0.7em;
+        border-right: 0.3em solid #fff;
+        border-top: 0.3em solid #fff;
+        transform: rotate(45deg);
+        margin-left: 0.4em;
+    }
+
+    .boton-Biblio:hover::after {
+        width: 0.7em;
+        height: 0.7em;
+        border-right: 0.3em solid #fff;
+        border-top: 0.3em solid #fff;
+        transform: rotate(45deg);
+        margin-left: 0.4em;
+        border-right: 0.2em solid #171412;
+        border-top: 0.2em solid #171412;
+    }
+
+
+    /*****************************************************
+*******INICIO DE ESTILOS PARA BANNERS DE PORTAL DE ESCUELA ****
+*****************************************************/
+    .caja-banner {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .banner-seccion h1 {
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        float: left;
+        padding: 10px;
+        font-size: 3.5rem;
+        margin-top: 1em;
+        position: relative;
+        left: -1em;
+
+    }
+
+    .banner-seccion h1:after {
+        content: "";
+        display: flex;
+        width: 100%;
+        height: 0.25em;
+        background: linear-gradient(to right, #35b8ff, #007bff);
+    }
+
+    .banner-seccion img {
+        width: 17em;
+        position: relative;
+        top: 1em;
+    }
+
+
+
+    /*****************************************************
+*******FINAL DE ESTILOS PARA BANNERS DE PORTAL DE ESCUELA ****
+*****************************************************/
+
+
+
+    /*****************************************************
+*******INICIO DE ESTILOS PARA ICONOS DE TEMAS ESCUELAS****
+*****************************************************/
+    .caja-iconos {
+        margin: 5px;
+    }
+
+    .contenedor-iconos-escuela {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+
+    }
+
+    .contenedor-iconos-escuela span {
+        display: block;
+    }
+
+    .iconos-escuelas {
+        padding: 10px;
+        margin: 20px;
+        width: 16em;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        will-change: transform;
+        transition: transform 450ms;
+
+    }
+
+    .fondo-iconos {
+        box-shadow: 11px 6px 11px -4px rgba(0, 0, 0, 0.34);
+        margin-bottom: 10px;
+    }
+
+    .iconos-escuelas:hover {
+        transition: transform 125ms;
+        transform: translateY(-10px);
+    }
+
+    .caja-iconos a {
+        color: black;
+        text-decoration: none;
+
+    }
+
+    .icono-escuela-png {
+        width: 8em;
+        padding: 5px;
+    }
+
+    .iconos-escuelas .img-hover {
+        display: none;
+        z-index: 99;
+    }
+
+    .iconos-escuelas:hover .img-hover {
+        display: inline;
+        background-color: #8BC34A;
+        position: absolute;
+        left: 4em;
+    }
+
+    /*****************************************************
+*******FIN DE ESTILOS PARA ICONOS DE TEMAS ESCUELAS****
+*****************************************************/
+
+
+    /*****************************************************
+*******ESTILOS PARA MÃ“VILES****
+*****************************************************/
+    @media screen and (max-device-width: 640px) {
+
+        .banner-seccion h1 {
+            font-size: 3em;
+        }
+
+        .banner-seccion h1:after {
+            width: 7em;
+        }
+
+
+    }
+
+
+
+    /*****************************************************
+*******FINAL DE ESTILOS PARA BANNERS DE SECCIÃ“N ****

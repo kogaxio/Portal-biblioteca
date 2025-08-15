@@ -1,0 +1,682 @@
+.navbar-default {
+    margin-top: 6.9rem;
+}
+
+.fa {
+    font-family: 'FontAwesome';
+    font-weight: var(--fa-style, 700);
+}
+
+.s-lib-cpane-caption h3 {
+    text-align: center;
+}
+
+/*****************************************************
+INICIO DE ESTILOS PARA BOTONES-ACCION 
+*****************************************************/
+.btn-dark {
+    position: relative;
+
+}
+
+.boton-Biblio {
+    background-color: #171412;
+    color: white;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    transition: .3s all;
+    cursor: pointer;
+    text-decoration: none;
+    width: 15em;
+    height: 4em;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 15px;
+
+}
+
+.boton-Biblio:hover {
+    color: #171412;
+    background-color: white;
+    border-radius: 0px;
+    border-color: #171412;
+
+}
+
+.boton-Biblio::after {
+    position: relative;
+    /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+    content: "";
+    display: inline-block;
+    /* By using an em scale, the arrows will size with the font */
+    width: 0.7em;
+    height: 0.7em;
+    border-right: 0.3em solid #fff;
+    border-top: 0.3em solid #fff;
+    transform: rotate(45deg);
+    margin-left: 0.4em;
+}
+
+.boton-Biblio:hover::after {
+    width: 0.7em;
+    height: 0.7em;
+    border-right: 0.3em solid #fff;
+    border-top: 0.3em solid #fff;
+    transform: rotate(45deg);
+    margin-left: 0.4em;
+    border-right: 0.2em solid #171412;
+    border-top: 0.2em solid #171412;
+}
+
+/*****************************************************
+FIN DE ESTILOS PARA BOTONES-ACCION 
+*****************************************************/
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+#s-lib-bc {
+    display: none;
+}
+
+div#s-lg-guide-search-box {
+    display: none;
+}
+
+div#s-lg-guide-header-info {
+    display: none;
+}
+
+div#.s-lib-guide-footer {
+    display: none;
+}
+
+div#s-lg-guide-header-meta.pad-top-sm.pad-left-med.clearfix {
+    display: none;
+}
+
+
+
+
+
+#s-lg-guide-tabs {
+    font-size: 17px;
+    font-family: Verdana;
+}
+
+h3.s-lc-ea-h3 {
+    display: none;
+}
+
+/* Custom tab and font color for tabbed boxes (no other modifications) */
+/* sets the default state font color */
+.ui-tabs .ui-tabs-nav li a {
+    color: white;
+    font-family: Tahoma;
+}
+
+/* This changes the background color of the unselected, or inactive, tabs */
+.ui-tabs-anchor {
+    background-color: #034949;
+    border-radius: 1px;
+}
+
+/* This changes the background color of the selected, or "active" tab */
+li.ui-tabs-active a {
+    background: #00898b;
+}
+
+
+/* area de la caja */
+.s-lib-box-content .ui-widget {
+    font-family: Arial, Helvetica, Verdana;
+    font-size: 1em;
+}
+
+.ui-widget-content {
+    border: 1px solid #bbb;
+
+    background: #fff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    color: #222;
+}
+
+/*area de backgroud de las cejillas */
+
+.ui-widget-header {
+    border: 0px solid #aaa;
+    background: #fff url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+    color: #222;
+    font-weight: bold;
+}
+
+
+
+/**************ESTILOS DE BOTONERA SHORTCUTS*************************/
+.shortcuts-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.shortcuts-nav a {
+    text-decoration: none;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+}
+
+.shortcut-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.shortcut-button {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    color: #333;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.shortcut-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transition: 0.5s;
+}
+
+.shortcut-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #8BC34A;
+}
+
+.shortcut-button:hover::before {
+    left: 100%;
+}
+
+.shortcut-button:active {
+    transform: translateY(0);
+}
+
+.shortcut-button.primary {
+    border: 6px solid #8BC34A;
+}
+
+.shortcut-button.secondary {
+    border: 6px solid #E7E8FD;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .shortcuts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .shortcut-button {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/*****************************************************
+*******INICIO DE ESTILOS PARA BANNERS DE SECCIÓN ****
+*****************************************************/
+/* Modern CSS Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+}
+
+/* Banner Container */
+.banner-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Title Styles */
+.banner-title {
+    position: relative;
+    display: inline-block;
+}
+
+.banner-title h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0.5rem 0;
+    color: #333;
+}
+
+/* Modern highlight effect */
+.banner-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0.5rem;
+    left: -0.5rem;
+    width: calc(100% + 1rem);
+    height: 1rem;
+    background: #43bdff;
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.banner-title:hover::after {
+    height: 1.5rem;
+}
+
+/* Image Container */
+.banner-image {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.banner-image img {
+    width: clamp(200px, 30vw, 300px);
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.banner-image:hover img {
+    transform: translateY(-5px);
+}
+
+#s-lg-tabs-container .nav-tabs {
+    border-bottom: 0;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .banner-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        max-width: 100%;
+    }
+
+    .banner-image img {
+        margin: 0 auto;
+    }
+
+    .section-title {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .banner-section {
+        break-inside: avoid;
+    }
+
+    .banner-title::after,
+    .section-title::after {
+        display: none;
+    }
+}
+
+/*****************************************************
+    *******FINAL DE ESTILOS PARA BANNERS DE SECCIÓN ****
+    *****************************************************/
+/*****************************************************
+*******INICIO DE ESTILOS PARA BANNERS DE SECCIÓN ****
+*****************************************************/
+.caja-banner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.banner-seccion h1 {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    float: left;
+    padding: 10px;
+    font-size: 4rem;
+    margin-top: 1em;
+    position: relative;
+    left: -1em;
+    z-index: 150;
+}
+
+.banner-seccion h1:after {
+    content: "";
+    display: flex;
+    width: 39rem;
+    height: 3rem;
+    background: #43bdff;
+    position: relative;
+    top: -39px;
+    z-index: -1;
+}
+
+.banner-seccion img {
+    width: 17em;
+    position: relative;
+    top: 1em;
+}
+
+.titulo-seccion-der h2 {
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+    font-size: 19px;
+    position: relative;
+    z-index: 150;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: -15px;
+    color: #FFF;
+}
+
+.titulo-seccion-der h2:after {
+    content: "";
+    display: flex;
+
+    height: 3rem;
+    background: #43bdff;
+    position: relative;
+    top: -31px;
+    z-index: -1;
+}
+
+.titulo-seccion-izq h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    position: relative;
+    z-index: 150;
+    font-weight: 600;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: -15px;
+    color: #FFF;
+}
+
+.titulo-seccion-izq h2:after {
+    content: "";
+    display: flex;
+    width: 38rem;
+    height: 3rem;
+    background: #43bdff;
+    position: relative;
+    top: -31px;
+    z-index: -1;
+    left: 1px;
+}
+
+/*****************************************************
+*******FINAL DE ESTILOS PARA BANNERS DE SECCIÓN ****
+/*****************************************************
+*******¡¡ESTILOS EN REVISIÓN!!****
+*****************************************************/
+
+/*****************************************************
+*******INICIO DE ESTILOS PARA COLORES DE BOTONES SHORTCUT****
+*****************************************************/
+.shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+
+}
+
+.shortcuts a {
+
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.flex-item {
+    width: 300px;
+    padding: 20px;
+    border-radius: 2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Colores alternados */
+.shortcuts a:nth-child(3n+1) .flex-item {
+    background-color: #3E44E7;
+
+}
+
+.shortcuts a:nth-child(3n+2) .flex-item {
+    background-color: #8BC34A;
+}
+
+.shortcuts a:nth-child(3n+3) .flex-item {
+    background-color: #EF8F00;
+
+}
+
+
+/* Efecto hover */
+.flex-item:hover {
+    background-color: #ECCCF2;
+    transform: scale(1.05);
+
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .flex-item {
+        padding: 15px;
+        font-size: 14px;
+
+    }
+
+    .shortcuts {
+        gap: 2px;
+    }
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+}
+
+.columna {
+    flex: 1 0 calc(50% - 10px);
+
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 20px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.opcion-columna {
+    color: #fff;
+    text-align: center;
+
+}
+
+.columna h2 {
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 1em;
+    font-size: 32px;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.columna h3 {
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.columna-icono {
+    width: 50px;
+    margin: auto;
+    display: block;
+}
+
+
+.columna ul {
+    padding: 0px 15px;
+    list-style: disc;
+    line-height: 2.5
+}
+
+.columna ol {
+    padding: 0px 15px;
+    line-height: 2.5
+}
+
+
+
+.columna .button {
+    width: 180px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-family: Trueno, sans-serif;
+    line-height: 1.3;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+
+}
+
+.columna .button-2Reg {
+    color: white;
+    border: 3px solid #000000;
+    background-image: -webkit-linear-gradient(30deg, #000000 50%, #000000 50%);
+    background-image: linear-gradient(30deg, #000000 50%, transparent 50%);
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+    position: absolute;
+    left: 16%;
+}
+
+.contenedor-boton-personalizado {
+    display: block;
+    margin: 15px 0;
+}
+
+.boton-primario-personalizado {
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #0d6efd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+}
+
+.boton-primario-personalizado:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+}
+
+.boton-primario-personalizado:active {
+    background-color: #0a58ca;
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.boton-primario-personalizado:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+
+
+/* Media query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .columna {
+        flex: 1 0 100%;
+        /* Cambio a ocupar 100% del ancho cuando la pantalla es pequeña */
+    }
+}
+
+.columna:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

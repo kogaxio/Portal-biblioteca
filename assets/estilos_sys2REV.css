@@ -1,0 +1,660 @@
+/*********************************************
+******** X. HEADER INSTITUCIONAL **************
+*********************************************/
+.institutional-header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+    height: 70px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+}
+
+.logo_instit {
+    height: auto;
+    width: 160px;
+}
+
+.logo-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.institutional-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.institutional-nav ul {
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    display: flex;
+}
+
+
+
+.institutional-nav img {
+    width: 48px;
+    height: auto;
+}
+
+.institutional-nav i {
+    font-size: 1em;
+    margin-left: 1em;
+}
+
+.institutional-nav span {
+    margin-left: 3px;
+}
+
+.institutional-nav a,
+.institutional-nav a:visited {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.institutional-nav a:hover,
+.institutional-nav a:active {
+
+    color: #EA337D;
+}
+
+
+.institutional-nav a:focus {
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* Media Query del logo institucional para mÃ³vil */
+@media (max-width: 768px) {
+    .logo_instit {
+        width: 130px;
+    }
+}
+
+.institutional-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*max-width: 1200px;  Ajusta el ancho mÃ¡ximo */
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+
+}
+
+/* Media Query del header institucional para mÃ³vil */
+@media (max-width: 768px) {
+    .header-content {}
+
+    .institutional-nav {
+        position: absolute;
+        right: 0;
+        top: auto;
+    }
+
+    #s-lg-guide-main {
+        padding-left: 1rem;
+    }
+
+    .nav-list_head {
+        top: 0px;
+    }
+
+    .institutional-nav span {
+        display: none;
+        margin: 0;
+    }
+
+    .institutional-nav ul {
+
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+
+    }
+
+
+    .institutional-nav i {
+        font-size: 1.5em;
+        margin-left: 0em;
+
+    }
+
+    .institutional-nav span {
+        margin: 0;
+    }
+}
+
+
+/*****************************************
+********** X. BUSCADOR *********************
+******************************************/
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--text-primary);
+    flex: 1;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-box-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 15px;
+    padding-left: 40px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: black;
+}
+
+.search-btn {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    color: #211f1f;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.search-section ::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: #121212;
+}
+
+.search-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #211f1f;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    /* Se mostrarÃ¡ solo en mÃ³vil cuando estÃ© expandido */
+}
+
+.search-toggle-btn {
+    display: none;
+    /* Por defecto oculto, se mostrarÃ¡ en mÃ³vil */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #211f1f;
+}
+
+.search-section ::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: #121212;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .institutional-header {
+        padding: 0;
+    }
+
+    .search-box-wrapper {
+        transition: width 0.3s ease;
+    }
+
+    .search-toggle-btn {
+        display: block;
+        background-color: var(--color-primary-500);
+    }
+
+    .search-form {
+        display: none;
+        /* Inicialmente oculto en mÃ³vil */
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 100;
+        padding: 0.5em;
+    }
+
+    .search-box-wrapper.expanded {
+        width: 100%;
+        /* Cuando estÃ¡ expandido */
+    }
+
+    .search-box-wrapper.expanded .search-form {
+        display: flex;
+
+        position: relative;
+        width: 100%;
+    }
+
+    .search-box-wrapper.expanded .search-toggle-btn {
+        display: none;
+    }
+
+    .search-box-wrapper.expanded .search-close-btn {
+        display: block;
+    }
+
+    .search-section ::placeholder {
+        font-size: 14px;
+        font-weight: 700;
+        padding-left: 5px;
+    }
+
+
+    .institutional-header.search-expanded .logo-wrapper,
+    .institutional-header.search-expanded .institutional-nav {
+        display: none;
+    }
+
+
+    .institutional-header.search-expanded .search-section {
+        width: 100%;
+    }
+}
+
+
+/*****************************************************
+*******INICIO DE ESTILOS PARA COLORES DE BOTONES SHORTCUT****
+*****************************************************/
+.shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.shortcuts a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.flex-item {
+    width: auto;
+    padding: 15px;
+    border-radius: 2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Colores alternados */
+.shortcuts a:nth-child(3n+1) .flex-item {
+    background-color: #8b8fff;
+
+}
+
+.shortcuts a:nth-child(3n+2) .flex-item {
+    background-color: #8BC34A;
+}
+
+.shortcuts a:nth-child(3n+3) .flex-item {
+    background-color: #EF8F00;
+
+}
+
+
+/* Efecto hover */
+.flex-item:hover {
+    background-color: #ECCCF2;
+    transform: scale(1.05);
+
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .flex-item {
+        padding: 15px;
+        font-size: 14px;
+
+    }
+
+    .shortcuts {
+        gap: 2px;
+    }
+
+    /*****************************************************
+*******ESTILOS DE CONTENIDOS: 2 COLUMNAS****
+*****************************************************/
+
+
+    .row1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+
+    }
+
+    .columna {
+        flex: 1 0 calc(50% - 10px);
+
+        box-sizing: border-box;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 20px;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .opcion-columna {
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .columna h2 {
+        font-weight: 700;
+        margin-top: 40px;
+        margin-bottom: 1em;
+        font-size: 32px;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .columna h3 {
+        text-align: center;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .columna-icono {
+        width: 50px;
+        margin: auto;
+        display: block;
+    }
+
+
+    .columna ul {
+        padding: 0px 15px;
+        list-style: disc;
+        line-height: 2.5
+    }
+
+    .columna ol {
+        padding: 0px 15px;
+        line-height: 2.5
+    }
+
+
+
+    .columna .button {
+        width: 180px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: Trueno, sans-serif;
+        line-height: 1.3;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        display: inline-block;
+
+    }
+
+    .columna .button-2Reg {
+        color: white;
+        border: 3px solid #000000;
+        background-image: -webkit-linear-gradient(30deg, #000000 50%, #000000 50%);
+        background-image: linear-gradient(30deg, #000000 50%, transparent 50%);
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-position: 0%;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+        position: absolute;
+        left: 16%;
+    }
+
+    .contenedor-boton-personalizado {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .boton-primario-personalizado {
+        display: inline-block;
+        padding: 10px 16px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #0d6efd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+    }
+
+    .boton-primario-personalizado:hover {
+        background-color: #0b5ed7;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    }
+
+    .boton-primario-personalizado:active {
+        background-color: #0a58ca;
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .boton-primario-personalizado:focus {
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    }
+
+
+
+    /* Media query para dispositivos mÃ¡s pequeÃ±os */
+    @media screen and (max-width: 768px) {
+        .columna {
+            flex: 1 0 100%;
+            /* Cambio a ocupar 100% del ancho cuando la pantalla es pequeÃ±a */
+        }
+    }
+
+    .columna:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+
+
+
+
+    /*****************************************************
+INICIO DE ESTILOS PARA BOTONES-ACCION 
+*****************************************************/
+    .btn-dark {
+        position: relative;
+
+    }
+
+    .boton-Biblio {
+        background-color: #171412;
+        color: white;
+        border-radius: 0px;
+        text-transform: uppercase;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        transition: .3s all;
+        cursor: pointer;
+        text-decoration: none;
+        width: 15em;
+        height: 4em;
+        vertical-align: middle;
+        justify-content: center;
+        margin: 15px;
+
+    }
+
+    .boton-Biblio:hover {
+        color: #171412;
+        background-color: white;
+        border-radius: 0px;
+        border-color: #171412;
+
+    }
+
+    .boton-Biblio::after {
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+        content: "";
+        display: inline-block;
+        /* By using an em scale, the arrows will size with the font */
+        width: 0.7em;
+        height: 0.7em;
+        border-right: 0.3em solid #fff;
+        border-top: 0.3em solid #fff;
+        transform: rotate(45deg);
+        margin-left: 0.4em;
+    }
+
+    .boton-Biblio:hover::after {
+        width: 0.7em;
+        height: 0.7em;
+        border-right: 0.3em solid #fff;
+        border-top: 0.3em solid #fff;
+        transform: rotate(45deg);
+        margin-left: 0.4em;
+        border-right: 0.2em solid #171412;
+        border-top: 0.2em solid #171412;
+    }
+
+
+    /*****************************************************
+*******INICIO DE ESTILOS PARA BANNERS DE PORTAL DE ESCUELA ****
+*****************************************************/
+    .caja-banner {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .banner-seccion h1 {
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        float: left;
+        padding: 10px;
+        font-size: 3.5rem;
+        margin-top: 1em;
+        position: relative;
+        left: -1em;
+
+    }
+
+    .banner-seccion h1:after {
+        content: "";
+        display: flex;
+        width: 100%;
+        height: 0.25em;
+        background: linear-gradient(to right, #35b8ff, #007bff);
+    }
+
+    .banner-seccion img {
+        width: 17em;
+        position: relative;
+        top: 1em;
+    }
+
+
+
+    /*****************************************************
+*******FINAL DE ESTILOS PARA BANNERS DE PORTAL DE ESCUELA ****
+*****************************************************/
+
+
+
+    /*****************************************************
+*******FIN DE ESTILOS PARA ICONOS DE TEMAS ESCUELAS****
+*****************************************************/
+
+
+    /*****************************************************
+*******ESTILOS PARA MÃ“VILES****
+*****************************************************/
+    @media screen and (max-device-width: 640px) {
+
+        .banner-seccion h1 {
+            font-size: 3em;
+        }
+
+        .banner-seccion h1:after {
+            width: 7em;
+        }
+
+
+    }
+
+
+
+    /*****************************************************
+*******FINAL DE ESTILOS PARA BANNERS DE SECCIÃ“N ****
